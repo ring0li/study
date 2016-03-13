@@ -11,8 +11,8 @@ function test($data) {
     $en = walu_hello($etype, $data, MCRYPT_MODE_CBC, $iv);
     echo "\n加密:" . BIN2HEX($en);
 
-    //$de = decypt_bank($etype, $en, MCRYPT_MODE_CBC, $iv);
-    //echo "\n解密:$de";
+    $de = decypt_bank($etype, $en, MCRYPT_MODE_CBC, $iv);
+    echo "\n解密:$de";
 }
 
 test('aaa');
