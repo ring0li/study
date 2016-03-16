@@ -1,8 +1,0 @@
-#! /bin/sh
-#
-# Created by configure
-
-'./configure' \
-'--with-php-config=/Users/liuli/work/soft/php-5.6.7/bin/php-config' \
-'--enable-debug' \
-"$@"
