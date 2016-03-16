@@ -1,7 +1,7 @@
 #ifndef JINDAN_H
 #define JINDAN_H
 
-//#define ENCYPT_SECRET "jindanlicai.com"
+#define ENCYPT_SECRET "jindanlicai.com"
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
