@@ -7,11 +7,11 @@ import time
 import datetime
 
 domain = 'http://guangdiu.com'
-keywords = (u'鸭脖', u'午餐肉')
+keywords = (u'周黑鸭', u'午餐肉', u'生蚝')
 
 with open('id.txt', 'r') as f:
     id = int(f.read())
-print id
+print '继续执行id：', id
 
 while True:
     r = requests.get(domain + '/detail.php', params={'id': id})
@@ -33,10 +33,11 @@ while True:
 
     for keyword in keywords:
         if title.find(keyword) != -1:
-            send_mail_command = 'echo "' + url + '" | mail -s "' + title + '" liuli@jindanlicai.com'
+            body = u"匹配关键词：" + keyword + "\n" + url
+            send_mail_command = 'echo "' + body + '" | mail -s "' + title + '" liuli@jindanlicai.com'
             os.system(send_mail_command.encode('utf-8'))
 
-    print "%s %d %s" % (datetime.datetime.now(), id, title)
+    print "%s %d %s %s" % (datetime.datetime.now(), id, title, url)
 
     id += 1
     with open('id.txt', 'w') as f:
