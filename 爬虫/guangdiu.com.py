@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*
 
 import requests
 from pyquery import PyQuery as pq
@@ -7,7 +8,18 @@ import time
 import datetime
 
 domain = 'http://guangdiu.com'
-keywords = (u'周黑鸭', u'午餐肉', u'生蚝')
+keywords = (u'午餐肉', u'元蹄', u'扣肉罐头', u'甘竹', u'hormel',  # u'罐头',
+            u'生蚝', u'牛脆骨', u'冷冻生鲜',
+            u'Mane‘n Tail',
+            u'具良治',
+            u'阿瑞娜',
+            u'榴莲',
+            u'露诗',
+            u'nici',
+            # u'内裤',
+            u'钢琴',  # 钢琴
+            u'竿', u'渔具', u'钓鱼', u'线组',
+            )
 
 with open('id.txt', 'r') as f:
     id = int(f.read())
@@ -36,8 +48,7 @@ while True:
             body = u"匹配关键词：" + keyword + "\n" + url
             send_mail_command = 'echo "' + body + '" | mail -s "' + title + '" liuli@jindanlicai.com'
             os.system(send_mail_command.encode('utf-8'))
-
-    print "%s %d %s %s" % (datetime.datetime.now(), id, title, url)
+            print "%s %d %s %s" % (datetime.datetime.now(), id, title, url)
 
     id += 1
     with open('id.txt', 'w') as f:
