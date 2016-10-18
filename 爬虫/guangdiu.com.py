@@ -88,10 +88,10 @@ while True:
         p = pq(r.text)
         content = p('.hourrankitem')
 
-        hotest_title = current_Ymd + str(next_hotest_hour)
         hotest_body = ''
         content.each(get_hotest)
         if hotest_body:
+            hotest_title = current_Ymd + str(next_hotest_hour)
             send_email(hotest_title, hotest_body)
 
             next_hotest_hour = int(next_hotest_hour) + 1
