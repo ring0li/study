@@ -80,10 +80,12 @@ while True:
     with open('guangdiu.ini', 'w') as configfile:  # save
         config.write(configfile)
 
+
+
     current_Ymd = time.strftime("%Y%m%d")
     current_hour = time.strftime("%H")
     if not next_hotest_hour or int(next_hotest_hour) <= int(current_hour):
-        r = requests.get(url_hotest, params={'date': current_Ymd, 'hour': current_hour})
+        r = requests.get(url_hotest, params={'date': current_Ymd, 'hour': next_hotest_hour})
         r.encoding = 'utf-8'
         p = pq(r.text)
         content = p('.hourrankitem')
