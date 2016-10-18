@@ -80,8 +80,6 @@ while True:
     with open('guangdiu.ini', 'w') as configfile:  # save
         config.write(configfile)
 
-
-
     current_Ymd = time.strftime("%Y%m%d")
     current_hour = time.strftime("%H")
     if not next_hotest_hour or int(next_hotest_hour) <= int(current_hour):
@@ -93,9 +91,10 @@ while True:
         hotest_title = current_Ymd + str(next_hotest_hour)
         hotest_body = ''
         content.each(get_hotest)
-        send_email(hotest_title, hotest_body)
+        if hotest_body:
+            send_email(hotest_title, hotest_body)
 
-        next_hotest_hour = int(next_hotest_hour) + 1
-        config['DEFAULT']['next_hotest_hour'] = str(next_hotest_hour)
-        with open('guangdiu.ini', 'w') as configfile:
-            config.write(configfile)
+            next_hotest_hour = int(next_hotest_hour) + 1
+            config['DEFAULT']['next_hotest_hour'] = str(next_hotest_hour)
+            with open('guangdiu.ini', 'w') as configfile:
+                config.write(configfile)
