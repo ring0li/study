@@ -71,6 +71,7 @@ while True:
     # print car_list
     for car in car_list:
         # 约车
+        print car
         data = {
             "yyrq": yuyue_date,
             "xnsd": yuyue_time,
@@ -82,9 +83,10 @@ while True:
         response = xmltodict.parse(response.text)
         ret = response['string']['#text']
         ret = eval(ret, {'false': False, 'true': True, 'null': None})
+        print ret
         if ret[0]['Result'] == True:
             print '预约成功'
             exit()
 
     print '查询中'
-    time.sleep(5)
+    time.sleep(3)
