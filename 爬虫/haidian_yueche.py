@@ -8,6 +8,16 @@ from pyquery import PyQuery
 from PIL import Image
 import xmltodict
 import time
+import os
+
+
+def send_email(title, body):
+    print title
+    print body
+    print "\n\n"
+    send_mail_command = 'echo "' + body + '" | mail -s "' + title + '" 9188917@qq.com'
+    os.system(send_mail_command.encode('utf-8'))
+
 
 username = '***'  # 登陆用户名
 password = '***'  # 登录密码
@@ -86,6 +96,7 @@ while True:
         print ret
         if ret[0]['Result'] == True:
             print '预约成功'
+            send_email('预约成功')
             exit()
 
     print '查询中'
