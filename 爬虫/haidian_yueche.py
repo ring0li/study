@@ -9,10 +9,10 @@ from PIL import Image
 import xmltodict
 import time
 
-username = '232103198611011733'  # 登陆用户名
-password = 'benchi'  # 登录密码
-yuyue_date = '20161116'  # 预约日期
-yuyue_time = '2002'  # 2001上午，2002下午，2003晚上
+username = '***'  # 登陆用户名
+password = '***'  # 登录密码
+yuyue_date = '20161113'  # 预约日期
+yuyue_time = '2001'  # 2001上午，2002下午，2003晚上
 
 session = requests.session()
 # 登录页
