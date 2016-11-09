@@ -87,4 +87,4 @@ while True:
             exit()
 
     print '查询中'
-    time.sleep(10)
+    time.sleep(5)
