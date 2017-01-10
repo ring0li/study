@@ -35,13 +35,15 @@ def get_hotest(i, e):
     url = e.find('.hourrankimgdiv').attr('href')
     url = url[1:]
 
-    hotest_body += "\n" + str(no) + "\n" + title + "\n" + domain + url
+    hotest_body += "<br>" + "<a href='" + domain + url + "'>" + str(no) + title + "</a>"
 
 
 def send_email(title, body):
     print("%s %s" % (title, body))
-    send_mail_command = 'echo "' + body + '" | mail -s "' + title + '" liuli@jindanlicai.com'
+    send_mail_command = "echo '%s' | mail -s \"$(echo '%s\\nContent-Type: text/html')\" liuli@jindanlicai.com" % (
+        body, title)
     os.system(send_mail_command.encode('utf-8'))
+
 
 
 domain = u'http://guangdiu.com'
@@ -79,7 +81,7 @@ while True:
     title = p(".dtitlelink").text().lower()
     for keyword in keywords:
         if title.find(keyword) != -1:
-            body = u"匹配关键词：" + keyword + "\n" + url
+            body = u"匹配关键词：" + keyword + "<br>" + "<a href='" + url + "'>" + title + "</a>"
             print("%s %s %s %s" % (datetime.now(), next_query_id, title, url))
             send_email(title, body)
 
