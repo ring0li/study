@@ -56,7 +56,7 @@ def send_email(title, body):
     smtp_server = 'smtp.exmail.qq.com'
 
     msg = MIMEText(body, 'html', 'utf-8')
-    msg['From'] = _format_addr('仆人 <%s>' % from_addr)
+    msg['From'] = _format_addr('逛丢 <%s>' % from_addr)
     msg['To'] = _format_addr('主人 <%s>' % to_addr)
     msg['Subject'] = Header(title, 'utf-8').encode()
 
