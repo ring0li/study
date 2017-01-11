@@ -40,10 +40,9 @@ def get_hotest(i, e):
 
 def send_email(title, body):
     print("%s %s" % (title, body))
-    send_mail_command = "echo '%s' | mail -s \"$(echo '%s\\nContent-Type: text/html')\" liuli@jindanlicai.com" % (
-        body, title)
+    send_mail_command = "echo '%s' | mail -s \"$(echo '%s\nContent-Type: text/html')\" liuli@jindanlicai.com" % (
+        body, title.replace(" ", '_'))
     os.system(send_mail_command.encode('utf-8'))
-
 
 
 domain = u'http://guangdiu.com'
