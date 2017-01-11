@@ -10,6 +10,12 @@ from datetime import timedelta
 import configparser
 import pymysql
 
+from email.header import Header
+from email.mime.text import MIMEText
+from email.utils import parseaddr, formataddr
+
+import smtplib
+
 
 def get_keyword():
     conn = pymysql.connect(host='localhost',
@@ -38,11 +44,27 @@ def get_hotest(i, e):
     hotest_body += "<br>" + "<a href='" + domain + url + "'>" + str(no) + title + "</a>"
 
 
+def _format_addr(s):
+    name, addr = parseaddr(s)
+    return formataddr((Header(name, 'utf-8').encode(), addr))
+
+
 def send_email(title, body):
-    print("%s %s" % (title, body))
-    send_mail_command = "echo '%s' | mail -s \"$(echo '%s\nContent-Type: text/html')\" liuli@jindanlicai.com" % (
-        body, title.replace(" ", '_'))
-    os.system(send_mail_command.encode('utf-8'))
+    from_addr = 'alert@jindanlicai.com'
+    password = 'e9E-Aek-V75-ewd'
+    to_addr = 'liuli@jindanlicai.com'
+    smtp_server = 'smtp.exmail.qq.com'
+
+    msg = MIMEText(body, 'html', 'utf-8')
+    msg['From'] = _format_addr('仆人 <%s>' % from_addr)
+    msg['To'] = _format_addr('主人 <%s>' % to_addr)
+    msg['Subject'] = Header(title, 'utf-8').encode()
+
+    server = smtplib.SMTP(smtp_server, 25)
+    # server.set_debuglevel(1)
+    server.login(from_addr, password)
+    server.sendmail(from_addr, [to_addr], msg.as_string())
+    server.quit()
 
 
 domain = u'http://guangdiu.com'
