@@ -1,6 +1,0 @@
-使用方法：
-
-1，windows系统
-    命令行下运行clone.exe
-2，mac系统
-    命令行下运行./clone
