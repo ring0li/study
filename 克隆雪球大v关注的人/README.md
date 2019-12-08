@@ -14,5 +14,5 @@
 
 ### 获取登陆cookie的方法
 
-![获取登陆 cookie 的方法](./获取登陆 cookie 的方法.png.png)
+![获取登陆cookie的方法](./获取登陆cookie的方法.png)
 
