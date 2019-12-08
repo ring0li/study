@@ -93,7 +93,6 @@ func main() {
 		for _, v := range guanzhuList.Users {
 			if v.Following == false {
 				ret := guanzhu(v.Id)
-				fmt.Println(ret)
 				if ret.Success == true {
 					fmt.Println("关注成功", v.Screen_name)
 				} else {
