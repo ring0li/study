@@ -56,7 +56,7 @@ var (
 
 func init() {
 	flag.IntVar(&uid, "uid", 0, "大v的uid,比如不明真相的群众的uid是1955602780")
-	flag.StringVar(&cookie, "cookie", "", "自己的cookie，获取方法，请参考https://github.com/ring0li/demo/blob/master/%E5%85%8B%E9%9A%86%E9%9B%AA%E7%90%83%E5%A4%A7v%E5%85%B3%E6%B3%A8%E7%9A%84%E4%BA%BA/cookie.png")
+	flag.StringVar(&cookie, "cookie", "", "自己雪球的cookie，获取方法参考此目录下的图片")
 
 	// 改变默认的 Usage，flag包中的Usage 其实是一个函数类型。这里是覆盖默认函数实现，具体见后面Usage部分的分析
 	flag.Usage = usage
