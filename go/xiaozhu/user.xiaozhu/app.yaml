@@ -1,0 +1,32 @@
+Port: "80"
+#
+LogsRootPath: "logs"
+
+Debug: true
+DbType: mysql
+Mysql:
+<<<<<<< HEAD
+    host: "127.0.0.1:3306"
+    user: "root"
+    pwd: "benchi"
+    dbname: "xiaozhu"
+    minConns: 2
+    maxConns: 10
+#
+LogsRootPath: "logs"
+Redis:
+    host: "127.0.0.1:6379"
+    pwd: ""
+    dbname: ""
+    minConns: 2
+    maxConns: 10
+
+
+=======
+  host: "127.0.0.1:3306"
+  user: root
+  pwd: "Abc123!@#"
+  dbname: "xiaozhu"
+  minConns: 2
+  maxConns: 10
+>>>>>>> 2cc02083d1b8523771f089371d292534f1e6fd3f

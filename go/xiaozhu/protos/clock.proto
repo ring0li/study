@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package protos;
+
+service ClockService {
+    rpc GetUp(GetUpRequest) returns (GetUpResponse) {}
+    rpc Test(GetUpRequest) returns (GetUpResponse) {}
+    rpc Sleep(SleepRequest) returns (SleepResponse) {}
+    rpc NoClockUsers(NoClockUsersRequest) returns (NoClockUsersResponse) {}
+    rpc GetNoClockFriends(GetNoClockFriendsRequest) returns (GetNoClockFriendsResponse) {}
+    rpc GetTotalClockDays(GetTotalClockDaysRequest) returns (GetTotalClockDaysResponse) {}
+}
+
+//早起
+message GetUpRequest {
+	string openId = 1;
+	string clockTime = 2;
+	string qrcodeUrl = 3;
+}
+message GetUpResponse {
+	string imgUrl = 1;
+	string text = 2;
+	int32 continueClockDays = 3;
+	string waterText = 4;
+}
+
+//早睡
+message SleepRequest {
+	string openId = 1;
+	string clockTime = 2;
+	string qrcodeUrl = 3;
+}
+message SleepResponse {
+	string imgUrl = 1;
+	string text = 2;
+	int32 continueClockDays = 3;
+	string waterText = 4;
+}
+
+//未打卡的用户列表
+message NoClockUsersRequest {
+    int32  clockType = 1;
+    string startTime = 2;
+    string endTime = 3;
+    int32 lastUserId = 4;
+}
+message NoClockUsersResponse {
+    repeated UserList list = 1;
+}
+
+message UserList {
+    int32  userId = 1;
+    string openId = 2;
+    string nickname = 3;
+    int32  sex = 4;
+    int32  isBlock = 5;
+}
+
+//未打卡的好友
+message GetNoClockFriendsRequest {
+    string openId = 1;
+    int32 clockType = 2;
+}
+message GetNoClockFriendsResponse {
+    repeated UserList list = 1;
+}
+
+//获得累计打卡天数
+message GetTotalClockDaysRequest {
+	string openId = 1;
+	int32 clockType = 2;
+}
+message GetTotalClockDaysResponse {
+	int32 totalClockDays = 1;
+}

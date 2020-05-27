@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package protos;
+
+service WaterService {
+    rpc getWaterText(getWaterTextRequest) returns (getWaterTextResponse) {}
+    //获得开关值
+    rpc get(getRequest) returns (getResponse) {}
+    //设置开关
+    rpc set(setRequest) returns (setResponse) {}
+}
+
+
+message getWaterTextRequest {
+    string waterTime = 1;
+    int32 lastUserId = 2;
+}
+
+message getWaterTextResponse {
+    repeated List list = 1;
+}
+message List {
+    int32 userId = 1;
+    string openId = 2;
+    string waterText = 3;
+}
+
+message getRequest {
+	string openId = 1;
+}
+message getResponse {
+    int32 waterval = 1;
+}
+
+message setRequest {
+	string openId = 1;
+	int32 waterval = 2;
+}
+message setResponse {
+}

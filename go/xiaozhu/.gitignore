@@ -1,0 +1,10 @@
+vendor/*
+.idea/*
+user.xiaozhu/app/grpc_client
+user.xiaozhu/app/grpc_server
+user.xiaozhu/app/demo
+user.xiaozhu/app/circle
+mark.xiaozhu/app/main
+user.xiaozhu/app/img/clockImg/*
+user.xiaozhu/app/img/headImg/*
+.DS_Store

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package protos;
+
+service LightService {
+    rpc addTag(addTagRequest) returns (addTagResponse) {}
+}
+
+//武汉肺炎加油
+message addTagRequest {
+	string openId = 1;
+	string typeName = 2;
+	string qrcode = 3;
+	string pos = 4;
+}
+
+message addTagResponse {
+	string imgurl = 1;
+	string shareimgurl = 2;
+}
+
+

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package protos;
+
+service BlockService {
+    rpc all(allRequest) returns (allResponse) {}
+    rpc friend(friendRequest) returns (allResponse) {}
+
+    rpc GetMyFriends(GetMyFriendsRequest) returns (GetMyFriendsResponse){}
+}
+
+//屏蔽全部消息
+message allRequest {
+	string openId = 1;
+	int32 switchval = 2;
+}
+message allResponse {
+	int32 code = 1;//200是成功，其他是错误
+	string message = 2;
+}
+
+message friendRequest {
+	string openId = 1;
+	string friendOpenId = 2;
+	int32 switchval = 3;
+}
+
+
+message GetMyFriendsRequest {
+	string openId = 1;
+}
+
+message GetMyFriendsResponse {
+    repeated GetMyFriendsResponseList list = 1;
+}
+message GetMyFriendsResponseList {
+    int32  userId = 1;
+    string openId = 2;
+    string nickname = 3;
+    int32  sex = 4;
+    string  headImgUrl = 5;
+    int32  isBlock = 6;
+}

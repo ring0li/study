@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package protos;
+
+/* package protos.user; */
+/* option go_package = "xiaozhu/protos/user;user"; */
+
+service UserService {
+    rpc GetUserByOpenid(GetUserByOpenidRequest) returns (GetUserByOpenidResponse) {
+        //这个地方用于定义 getwayGrpc，学习用，这个项目中用不到
+        //option (google.api.http) = {
+        //    post: "/v1/GetUserByOpenid"
+        //    body: "*"
+        //};
+    }
+    rpc GetUsersByOpenids(GetUsersByOpenidsRequest) returns (GetUsersByOpenidsResponse) {}
+
+    rpc SaveUser(SaveUserRequest) returns (SaveUserResponse) {}
+
+    rpc Unsubscribe(UnsubscribeRequest) returns (UnsubscribeResponse){}
+}
+
+//根据用户openid查询用户信息
+message GetUserByOpenidRequest {
+	string openId = 1;
+}
+message GetUserByOpenidResponse {
+	int32  userId = 1;
+	string openId = 2;
+	string unionId = 3;
+	string nickname = 4;
+	int32  sex = 5;
+	string city = 6;
+	string province = 7;
+	string country = 8;
+	string headImgUrl = 9;
+	int32 isBlock = 10;
+}
+
+//批量查询，根据用户openid查询用户信息
+message GetUsersByOpenidsRequest {
+	string openIds = 1;
+}
+message GetUsersByOpenidsResponse {
+   repeated GetUserByOpenidResponse list = 1;
+}
+
+
+//保存用户信息
+message SaveUserRequest {
+	string openId = 1;
+    string unionId = 2;
+    string nickname = 3;
+    int32  sex = 4;
+    string city = 5;
+    string province = 6;
+    string country = 7;
+    string headImgUrl = 8;
+    string FriendOpenId = 9;//可选，邀请者的openId
+}
+message SaveUserResponse {
+	int32 userId = 1;
+}
+
+//取消订阅
+message UnsubscribeRequest {
+    string openId = 1;
+}
+message UnsubscribeResponse{
+    int32 success = 1;
+}
+

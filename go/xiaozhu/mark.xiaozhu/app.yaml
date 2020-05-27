@@ -1,0 +1,30 @@
+Port: "80"
+#
+Debug: true
+DbType: mysql
+Mysql:
+  host: "127.0.0.1:3306"
+  user: root
+  pwd: "Abc123!@#"
+  dbname: "xiaozhu"
+  minConns: 2
+  maxConns: 10
+#
+LogsRootPath: "logs"
+GRPCUserServer:
+  host: "127.0.0.1:8082"
+Redis:
+  host: "127.0.0.1:6379"
+  pwd: ""
+  dbname: ""
+  minConns: 2
+  maxConns: 10
+Wechat:
+  appId: "wx4bef6aa2b9673c8d"
+  appSecret: "00a4587a4f1ce8d8e2bb5d5be1cb03a2"
+  token: "wechat4go"
+  encodingAESKey: "1EZVXA3YEwrg9sRRquNoLWGOHZX1V9dnHQJ9aW4ioQh"
+  payMchID: "" #支付 - 商户 ID
+  payNotifyURL: "" #支付 - 接受微信支付结果通知的接口地址
+  payKey: "" #支付 - 商户后台设置的支付 key
+  cache: "redis"
