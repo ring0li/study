@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <title>库存查询</title>
+</head>
+<body>
+
+
+<form class="form-inline">
+    <label class="">名称:</label>
+    <input type="text" style="width: 400px" class="form-control mb-2 mr-sm-6" id="inlineFormInputName2"
+           name="goods_name" value="{{.goods_name}}" placeholder="">
+
+    <label class="">Style ID:</label>
+    <input type="text" style="width: 200px" class="form-control mb-2 mr-sm-6" id="inlineFormInputName2"
+           name="style_id" value="{{.style_id}}" placeholder="">
+
+    <label class="">颜色:</label>
+    <input type="text" style="width: 200px" class="form-control mb-2 mr-sm-6" id="inlineFormInputName2"
+           name="goods_color" value="{{.goods_color}}" placeholder="">
+
+    <label class="">尺寸:</label>
+    <input type="text" style="width: 100px" class="form-control mb-2 mr-sm-6" id="inlineFormInputName2"
+           name="goods_size" value="{{.goods_size}}" placeholder="">
+
+    <button type="submit" class="btn btn-primary mb-2">查询</button>
+</form>
+
+
+<table class="table table-hover table-sm">
+    <thead>
+    <tr>
+        <th scope="col">名称</th>
+        <th scope="col">Style ID</th>
+        <th scope="col">颜色</th>
+        <th scope="col">尺寸</th>
+        <th scope="col">价格</th>
+        <th scope="col">状态</th>
+        <th scope="col">库存</th>
+        <th scope="col">查询时间</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {{ range $k,$v := .list }}
+        <tr>
+            <td><a target="_blank" href="https://www.acnestudios.com/{{$v.GoodsHref}}">{{$v.GoodsName}}</a></td>
+            <td>{{$v.StyleID}}</td>
+            <td>{{$v.GoodsColor}}</td>
+            <td>{{$v.GoodsSize}}</td>
+            <td>{{$v.GoodsPrice}}</td>
+            <td>{{$v.GoodsRemark}}</td>
+            <td>{{$v.GoodsStock}}</td>
+            <td>{{$v.CreateTime.Time.Format "2006-01-02 15:04:05"}}</td>
+        </tr>
+    {{end}}
+
+    </tbody>
+</table>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
