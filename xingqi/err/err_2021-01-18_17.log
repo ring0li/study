@@ -1,0 +1,70 @@
+=========================2021-01-18 17:10:43 ========================= 
+Got error when connect database:root:root@tcp(127.0.0.1:3306)/xingqi?charset=utf8&parseTime=True&loc=Local&interpolateParams=True: Error 1045: Access denied for user 'root'@'localhost' (using password: YES)
+goroutine 1 [running]:
+runtime/debug.Stack(0xc0000b9a08, 0xc0003248f0, 0xd0)
+	/usr/local/Cellar/go/1.13.1/libexec/src/runtime/debug/stack.go:24 +0x9d
+github.com/xxjwxc/public/mylog.(*errDeal).SaveError(0xc0000d0460, 0xc000324750, 0xce, 0x48380b9, 0x3)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mylog/common.go:38 +0x3ac
+github.com/xxjwxc/public/mylog.(*stdLog).Error(0xc0000d0460, 0xc0003776f0, 0x1, 0x1)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mylog/std.go:38 +0x178
+github.com/xxjwxc/public/mylog.Error(...)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mylog/mylog.go:45
+github.com/xxjwxc/public/mysqldb.(*MySqlDB).OnGetDBOrm(0xc00039fab0, 0xc000090af0, 0x61, 0x3)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mysqldb/mysqldb.go:37 +0x30b
+github.com/xxjwxc/public/mysqldb.OnInitDBOrm(...)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mysqldb/mysqldb.go:25
+github.com/xxjwxc/gormt/data/view/model/genmysql.(*mysqlModel).GenModel(0x4e8ada0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/view/model/genmysql/genmysql.go:22 +0x88
+github.com/xxjwxc/gormt/data/view/gtools.showCmd()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/view/gtools/gtools.go:45 +0xa8
+github.com/xxjwxc/gormt/data/view/gtools.Execute()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/view/gtools/gtools.go:24 +0x38
+github.com/xxjwxc/gormt/data/cmd.glob..func1(0x4e42860, 0xc000362300, 0x0, 0x4)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/cmd/cmd.go:29 +0x20
+github.com/spf13/cobra.(*Command).execute(0x4e42860, 0xc0000cc010, 0x4, 0x4, 0x4e42860, 0xc0000cc010)
+	/Users/liuli/work/go/code/src/github.com/spf13/cobra/command.go:854 +0x2aa
+github.com/spf13/cobra.(*Command).ExecuteC(0x4e42860, 0x0, 0x0, 0x0)
+	/Users/liuli/work/go/code/src/github.com/spf13/cobra/command.go:958 +0x349
+github.com/spf13/cobra.(*Command).Execute(...)
+	/Users/liuli/work/go/code/src/github.com/spf13/cobra/command.go:895
+github.com/xxjwxc/gormt/data/cmd.Execute()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/cmd/cmd.go:37 +0x2d
+main.main()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/main.go:6 +0x20
+
+=========================end=========================
+=========================2021-01-18 17:39:57 ========================= 
+Got error when connect database:root:root@tcp(127.0.0.1:3306)/xingqi?charset=utf8&parseTime=True&loc=Local&interpolateParams=True: Error 1045: Access denied for user 'root'@'localhost' (using password: YES)
+goroutine 1 [running]:
+runtime/debug.Stack(0xc000404008, 0xc00041c5b0, 0xd0)
+	/usr/local/Cellar/go/1.13.1/libexec/src/runtime/debug/stack.go:24 +0x9d
+github.com/xxjwxc/public/mylog.(*errDeal).SaveError(0xc00000e4c0, 0xc00041c410, 0xce, 0x48380b9, 0x3)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mylog/common.go:38 +0x3ac
+github.com/xxjwxc/public/mylog.(*stdLog).Error(0xc00000e4c0, 0xc000402070, 0x1, 0x1)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mylog/std.go:38 +0x178
+github.com/xxjwxc/public/mylog.Error(...)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mylog/mylog.go:45
+github.com/xxjwxc/public/mysqldb.(*MySqlDB).OnGetDBOrm(0xc0003d7ab0, 0xc0000262a0, 0x61, 0x0)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mysqldb/mysqldb.go:37 +0x30b
+github.com/xxjwxc/public/mysqldb.OnInitDBOrm(...)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/public/mysqldb/mysqldb.go:25
+github.com/xxjwxc/gormt/data/view/model/genmysql.(*mysqlModel).GenModel(0x4e8ada0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/view/model/genmysql/genmysql.go:22 +0x88
+github.com/xxjwxc/gormt/data/view/gtools.showCmd()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/view/gtools/gtools.go:45 +0xa8
+github.com/xxjwxc/gormt/data/view/gtools.Execute()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/view/gtools/gtools.go:24 +0x38
+github.com/xxjwxc/gormt/data/cmd.glob..func1(0x4e42860, 0xc000370b00, 0x0, 0x4)
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/cmd/cmd.go:29 +0x20
+github.com/spf13/cobra.(*Command).execute(0x4e42860, 0xc000020060, 0x4, 0x4, 0x4e42860, 0xc000020060)
+	/Users/liuli/work/go/code/src/github.com/spf13/cobra/command.go:854 +0x2aa
+github.com/spf13/cobra.(*Command).ExecuteC(0x4e42860, 0x0, 0x0, 0x0)
+	/Users/liuli/work/go/code/src/github.com/spf13/cobra/command.go:958 +0x349
+github.com/spf13/cobra.(*Command).Execute(...)
+	/Users/liuli/work/go/code/src/github.com/spf13/cobra/command.go:895
+github.com/xxjwxc/gormt/data/cmd.Execute()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/data/cmd/cmd.go:37 +0x2d
+main.main()
+	/Users/liuli/work/go/code/src/github.com/xxjwxc/gormt/main.go:6 +0x20
+
+=========================end=========================
